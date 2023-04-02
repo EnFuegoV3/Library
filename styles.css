@@ -15,7 +15,7 @@ form {
 }
 
 label, select {
-    margin-left: 1em;
+    margin-left: .5em;
 }
 
 #pages {
@@ -32,4 +32,8 @@ button {
     display: block;
     margin: auto;
     margin-top: 1em;
+}
+
+.cards {
+    border: 1px solid red;
 }

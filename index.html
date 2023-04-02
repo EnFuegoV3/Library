@@ -15,24 +15,23 @@
             <p>Input new Book</p>
             <form action="">
                 <label for="book-name">Book Name</label>
-                <input type="text" id="book-name" required>
+                <input type="text" id="book-name" name="book-name" required>
                 <label for="author">Author</label>
-                <input type="text" id="author" required>
+                <input type="text" id="author" name="author" required>
                 <label for="pages">Pages</label>
-                <input type="number" id="pages" required>
+                <input type="number" id="pages" name="pages" required>
                 <select name="status" id="status">
                     <option value="">Have you read this book yet?</option>
                     <option value="read">Read</option>
                     <option value="not read">Not Read</option>
                 </select>
-                <button type="submit">Submit New Entry</button>
+                <button type="submit" id="submit">Submit New Entry</button>
             </form>
         </div>
     </header>
     <main>
         <h2>My Books</h2>
         <div class="book-container">
-
         </div>
     </main>
 </body>
