@@ -24,16 +24,18 @@ const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', 304, 'not read');
 const artOfWar = new Book('The Art of War', 'Sun Tzu', 288, 'not read')
 const donQ = new Book('Don Quixote', 'Miguel de Cervantes', 1072, 'not read')
 const lordFlies = new Book('Lord of the Flies', 'William Golding', 224, 'not read' )
-myLibrary.push(theHobbit, artOfWar, donQ, lordFlies);
+const dune = new Book('Dune', 'Frank Herbert', 412, 'read' )
+myLibrary.push(theHobbit, artOfWar, donQ, lordFlies, dune);
 
 
 
 function addBookToLibrary() {
     submit.addEventListener('click', () => {
+        myBooks.innerHTML = "";
         event.preventDefault();
         let newBook = new Book(bookName.value, author.value, pages.value, status.value);
         myLibrary.push(newBook);
-        console.log(myLibrary);
+        displayBooks();
     });
 }
 
@@ -41,6 +43,7 @@ function addBookToLibrary() {
 
 function displayBooks() {
     for (let n = 0; n <= myLibrary.length; n++) {
+        console.log(myLibrary);
         const cardMarkup = `<p>${myLibrary[n].title}</p>
                             <p>Author: ${myLibrary[n].author}</p>
                             <p>Pages: ${myLibrary[n].pages}</p>
@@ -53,14 +56,7 @@ function displayBooks() {
 }
 
 
-
-
-
-
-
-
-
-displayBooks();
 addBookToLibrary();
-console.log(displayBooks());
+displayBooks();
+// console.log(myLibrary);
 
