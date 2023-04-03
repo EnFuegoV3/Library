@@ -52,10 +52,19 @@ function displayBooks() {
         addBook.classList.add('cards');
         addBook.innerHTML = cardMarkup;
         myBooks.appendChild(addBook);
+        if (myLibrary[n].read === 'not read') {
+            let readBtn = document.createElement('button')
+            readBtn.classList.add('read');
+            readBtn.setAttribute("value", `${[n]}`)
+            readBtn.textContent = "Mark as Read"
+            addBook.appendChild(readBtn);
+            console.log(readBtn);
+            
+        }
         // console.log(cardMarkup);
     }
     removeBook();  
-    
+    toggleRead();
 }
 
 
@@ -69,12 +78,23 @@ function removeBook(id) {
             displayBooks();
           })
     })
-    
 }
 
+function toggleRead() {
+    const readTgl = document.querySelectorAll('.read');
+    readTgl.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            myLibrary[btn.value].read = 'read';
+            console.log(myLibrary);
+            myBooks.innerHTML = "";
+            displayBooks();
+
+        })
+    })
+}
 
  
 addBookToLibrary();
 displayBooks();
-console.log(myLibrary);
+console.log(myLibrary[0].read);
 
