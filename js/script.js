@@ -7,6 +7,7 @@ const myBooks = document.querySelector('.book-container');
 
 
 
+
 const myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -40,23 +41,40 @@ function addBookToLibrary() {
 }
 
 
-
 function displayBooks() {
-    for (let n = 0; n <= myLibrary.length; n++) {
-        console.log(myLibrary);
+    for (let n = 0; n < myLibrary.length; n++) {
         const cardMarkup = `<p>${myLibrary[n].title}</p>
                             <p>Author: ${myLibrary[n].author}</p>
                             <p>Pages: ${myLibrary[n].pages}</p>
-                            <p>${myLibrary[n].read}</p>`
+                            <p>${myLibrary[n].read}</p>
+                            <button class="remove" value="${[n]}">Remove</button>`
         let addBook = document.createElement('div');
         addBook.classList.add('cards');
         addBook.innerHTML = cardMarkup;
         myBooks.appendChild(addBook);
+        // console.log(cardMarkup);
     }
+    removeBook();  
+    
 }
 
 
+function removeBook(id) {
+    const removeBtn = document.querySelectorAll('.remove');
+    removeBtn.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            myLibrary.splice([btn.value], 1);
+            console.log(myLibrary);
+            myBooks.innerHTML = "";
+            displayBooks();
+          })
+    })
+    
+}
+
+
+ 
 addBookToLibrary();
 displayBooks();
-// console.log(myLibrary);
+console.log(myLibrary);
 
