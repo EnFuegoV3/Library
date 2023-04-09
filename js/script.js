@@ -10,12 +10,22 @@ const myBooks = document.querySelector('.book-container');
 
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
+//class
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 }
+
+// function Book(title, author, pages, read) {
+//     this.title = title
+//     this.author = author
+//     this.pages = pages
+//     this.read = read
+// }
 
 Book.prototype.info = function() {
     return `${this.title} by ${this.author} has ${this.pages} pages and I have ${this.read} it`;
