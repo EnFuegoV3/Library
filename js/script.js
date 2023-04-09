@@ -30,15 +30,15 @@ myLibrary.push(theHobbit, artOfWar, donQ, lordFlies, dune);
 
 
 
-function addBookToLibrary() {
-    submit.addEventListener('click', () => {
-        myBooks.innerHTML = "";
-        event.preventDefault();
-        let newBook = new Book(bookName.value, author.value, pages.value, status.value);
-        myLibrary.push(newBook);
-        displayBooks();
-    });
-}
+//add new book to library
+submit.addEventListener('click', () => {
+    myBooks.innerHTML = "";
+    event.preventDefault();
+    let newBook = new Book(bookName.value, author.value, pages.value, status.value);
+    myLibrary.push(newBook);
+    displayBooks();
+});
+
 
 
 function displayBooks() {
@@ -94,7 +94,7 @@ function toggleRead() {
 }
 
  
-addBookToLibrary();
+// addBookToLibrary();
 displayBooks();
-console.log(myLibrary[0].read);
+console.log(myLibrary);
 
